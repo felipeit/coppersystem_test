@@ -1,7 +1,7 @@
-import { ThrowStmt } from '@angular/compiler';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+
+import { Component, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { PageEvent } from '@angular/material/paginator';
 import * as alertify from 'alertifyjs';
 
 
@@ -12,20 +12,19 @@ import * as alertify from 'alertifyjs';
 })
 
 export class AppComponent {
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
   displayedColumns: string[] = ['name', 'language', 'created_at'];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {}
 
-  }
   name = "";
   title = 'github-api';
   public repositories = "";
   public pageSlice = "";
 
   getList() {
+    /**
+     * retorna a lista do repositorios do usuários informado.
+     */
     console.log(this.name);
     let url = "https://api.github.com/users/" + this.name + "/repos";
     if (this.repositories) { this.pageSlice = ""; }
@@ -40,6 +39,9 @@ export class AppComponent {
   }
 
   OnPageChange(event: PageEvent) {
+    /**
+     * cria a logica de paginação.
+     */
     console.log(event)
     const startIndex = event.pageIndex * event.pageSize;
     let endIndex = startIndex + event.pageSize;
@@ -47,7 +49,6 @@ export class AppComponent {
       endIndex = this.repositories.length;
     }
     this.pageSlice = this.repositories.slice(startIndex, endIndex)
-    console.log(this.repositories);
   }
 
 }

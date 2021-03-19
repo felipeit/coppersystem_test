@@ -45,7 +45,7 @@ describe('Validando o AppComponent', () => {
     expect(app.title).toEqual('github-api');
   });
 
-  it('deve validar o retorno da API do github', async() => {
+  it('deve validar a chamada da  função da API do Github', async() => {
     const fixture = TestBed.createComponent(AppComponent);
     const component = fixture.componentInstance;
     const element = fixture.nativeElement;
