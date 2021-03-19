@@ -26,6 +26,7 @@ export class AppComponent {
   public pageSlice = "";
 
   getList() {
+    console.log(this.name);
     let url = "https://api.github.com/users/" + this.name + "/repos";
     if (this.repositories) { this.pageSlice = ""; }
     this.http.get(url).subscribe((data: any) => {

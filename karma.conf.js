@@ -39,6 +39,15 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    files: [
+      "node_modules/jquery/dist/jquery.js",
+      "node_modules/bootstrap/dist/js/bootstrap.min.js",
+      "node_modules/alertifyjs/build/alertify.min.js",
+      "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+      "node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "node_modules/alertifyjs/build/css/alertify.min.css",
+      "src/styles.css"
+    ]
   });
 };
